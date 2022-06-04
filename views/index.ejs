@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rebirth Island Forum</title>
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+    </head>    
+    <body>
+        <h1>Rebirth Island Forum</h1>
+        <span>Where the sweats come to cool down</span>
+
+        <section class="container clearfix">
+            <section id="inputContainer">
+                <form action='/blogPost' method="POST">
+                    <input type="text" placeholder="name" name="name">
+                    <textarea type="text" placeholder="message" rows='3' name="message"></textarea>
+                    <button type="submit">Post</button>
+                </form>
+                <div>
+                    <button id="delete-button">Delete Blank Posts</button>
+                </div>
+                <div id="message"></div>
+            </section>
+
+            <ul id="postContainer">
+                <% for(var i = 0; i < rebirthPosts.length; i++) {%>
+                    <li class="singlePost">
+                        <h2><%= rebirthPosts[i].name %></h2>
+                        <span><%= rebirthPosts[i].message %></span>
+                    </li>
+                <% } %>
+            </ul>
+        </section>
+        
+        <script src='/main.js'></script>
+
+    </body>
+</html>

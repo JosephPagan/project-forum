@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear {
+   clear: both;
+}
+
+/* Main ======================================================================== */
+  
+html{
+    text-align: center;
+    background: url('background01.png');
+}
+body{
+    height: 100%;
+    width: 100%;
+}
+h1{
+    color: white;
+}
+h1 + span{
+    display: inline-block;
+    color: white;
+    margin-bottom: 2%;
+}
+.container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+ul{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: .3%;
+}
+li{
+    list-style: none;
+    border: 3px solid lightgray;
+    background-color: rgb(207, 209, 209, .70);
+    padding: 1%;
+}
+li > h2{
+    margin-bottom: 1%;
+}
+#inputContainer{
+    border: 3px solid gray;
+    width: 40%;
+    height: 40%;
+    margin: .5%;
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    background-color: rgb(143, 141, 141, .50);
+}
+form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+form input{
+    margin-bottom: 5%;
+}
+form input + textarea{
+    height: 100px;
+    margin-bottom: 2%;
+}
+form button{
+    width: 40%;
+}
