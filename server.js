@@ -12,6 +12,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         const db = client.db('project-forum')
         const rebirthCollection = db.collection('rebirth-posts')
 
+
         app.set('view engine', 'ejs')
         app.use(bodyParser.urlencoded({extended: true}))
         app.use(bodyParser.json())
@@ -24,7 +25,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                     res.render('index.ejs', { rebirthPosts: results })
                 })
                 .catch(error => console.log(error))
-            
         })
 
         app.post('/blogPost', (req, res) => {
