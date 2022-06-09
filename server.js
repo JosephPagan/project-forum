@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient= require('mongodb').MongoClient
+const cors = require('cors')
 const PORT = process.env.PORT || 3001
 
 const connectionString = 'mongodb+srv://yoda:Shadow69@cluster0.cf1zjcw.mongodb.net/?retryWrites=true&w=majority'
@@ -12,11 +13,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         const db = client.db('project-forum')
         const rebirthCollection = db.collection('rebirth-posts')
 
-
+        app.use(cors())
         app.set('view engine', 'ejs')
         app.use(bodyParser.urlencoded({extended: true}))
         app.use(bodyParser.json())
         app.use(express.static('public'))
+
 
         app.get('/', (req, res) => {
             db.collection('rebirth-posts').find().toArray()
