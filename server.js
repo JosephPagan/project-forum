@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient= require('mongodb').MongoClient
-const PORT = 3001
 
 const connectionString = 'mongodb+srv://yoda:Shadow69@cluster0.cf1zjcw.mongodb.net/?retryWrites=true&w=majority'
 
