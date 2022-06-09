@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient= require('mongodb').MongoClient
-const PORT = 3000
 
 const connectionString = 'mongodb+srv://yoda:Shadow69@cluster0.cf1zjcw.mongodb.net/?retryWrites=true&w=majority'
 
@@ -51,6 +50,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             .catch(error => console.log(error))
         })
 
+        const PORT = process.env.PORT || 3001
         app.listen(PORT, () =>{
             console.log(`The server is running on port ${PORT}!`)
         })
