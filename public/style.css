@@ -70,7 +70,6 @@ li > span{
     flex-direction: column;
     padding: 2%;
     background-color: rgb(143, 141, 141, .50);
-    position: fixed;
 }
 form{
     width: 100%;
