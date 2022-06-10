@@ -29,7 +29,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.post('/blogPost', (req, res) => {
-            rebirthCollection.insertOne({name: req.body.name, message: req.body.message})
+            rebirthCollection.insertOne({name: req.body.name, message: req.body.message, likes: 0})
             .then(result => {
                 console.log(result)
                 res.redirect('/')
@@ -38,21 +38,18 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             //console.log(req.body)
         })
 
-        // app.put('/addOneLike', (request, response) => {
-        //     db.collection('rebirth-posts').updateOne({name: request.body.nameS, message: request.body.messageS, likes: request.body.likesS},{
-        //         $set: {
-        //             likes:request.body.likesS + 1
-        //           }
-        //     },{
-        //         sort: {_id: -1},
-        //         upsert: true
-        //     })
-        //     .then(result => {
-        //         console.log('Added One Like')
-        //         response.json('Like Added')
-        //     })
-        //     .catch(error => console.error(error))
-        // })
+        app.put('/addOneLike', (request, response) => {
+            db.collection('rebirth-posts').updateOne({name: request.body.nameS, message: request.body.messageS, likes: request.body.likesS},{
+                $set: {
+                    likes:request.body.likesS + 1
+                  }
+            })
+            .then(result => {
+                console.log('Added One Like')
+                response.json('Like Added')
+            })
+            .catch(error => console.error(error))
+        })
 
         app.delete('/blogPost', (req, res) => {
             rebirthCollection.deleteOne({name: req.body.name})

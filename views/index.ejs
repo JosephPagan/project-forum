@@ -25,10 +25,10 @@
                 <form action='/blogPost' method="POST">
                     <input type="text" placeholder="Name" name="name">
                     <textarea type="text" placeholder="Message" rows='3' name="message"></textarea>
-                    <button id='postButton' type="submit">Post</button>
+                    <button class="button-85" id='postButton' type="submit">Post</button>
                 </form>
                 <div>
-                    <button id="delete-button">Delete Blank Posts</button>
+                    <button class="button-30" id="delete-button">Delete Blank Posts</button>
                 </div>
                 <div id="message"></div>
             </section>
@@ -38,8 +38,8 @@
                     <li class="singlePost">
                         <h2><%= rebirthPosts[i].name %></h2>
                         <span><%= rebirthPosts[i].message %></span>
-                        <!-- <span id='likeNumber'><%= rebirthPosts[i].likes %></span>
-                        <span id='likeButton'>LIKES</span> -->
+                        <span id='likeNumber'><%= rebirthPosts[i].likes %></span>
+                        <span id='likeButton'>LIKES</span>
                     </li>
                 <% } %>
             </ul>
