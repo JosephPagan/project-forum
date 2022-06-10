@@ -29,15 +29,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.post('/blogPost', (req, res) => {
-            if (!req.body.name) {
-                return res.status(404).json({
-                    error: 'name missing'
-                })
-            } else if (!req.body.message) {
-                return res.status(404).json({
-                    error: 'message missing'
-                })
-            }
             rebirthCollection.insertOne({name: req.body.name, message: req.body.message, likes: 0})
             .then(result => {
                 console.log(result)
