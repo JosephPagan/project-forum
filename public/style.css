@@ -42,6 +42,11 @@ h1 + span{
     color: white;
     margin-bottom: 2%;
 }
+h2{
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.4em;
+    font-weight: bold;
+}
 .container{
     display: flex;
     width: 100%;
@@ -67,7 +72,8 @@ li > h2{
     margin-bottom: 1%;
 }
 li > span{
-    font-size: 18px;
+    font-size: 1.2em;
+    font-family: 'Sarpanch', sans-serif;
 }
 #likeNumber{
     display: block;
@@ -123,7 +129,7 @@ form button{
     }
     #likeButton{
         margin-left: 75%;
-        font-size: 12px;
+        font-size: 10px;
         font-family: 'Geostar Fill', sans-serif;
         letter-spacing: 1.5px;
         display: block;
@@ -172,7 +178,9 @@ form button{
         color: green;
         border: 2px solid green;
         width: 25%;
-
+    }
+    #inputContainer{
+        height: auto;
     }
 }
 
