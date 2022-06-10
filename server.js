@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const MongoClient= require('mongodb').MongoClient
 const cors = require('cors')
 const PORT = process.env.PORT || 3001
-
 const connectionString = 'mongodb+srv://yoda:Shadow69@cluster0.cf1zjcw.mongodb.net/?retryWrites=true&w=majority'
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
