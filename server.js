@@ -62,7 +62,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                 response.json('Like Added')
             })
             .catch(error => console.error(error))
-        
         })
 
         app.delete('/blogPost', (req, res) => {
@@ -80,7 +79,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         app.listen(PORT, () =>{
             console.log(`The server is running on port ${PORT}!`)
         })
-
     })
     .catch(error => console.error(error))
 
