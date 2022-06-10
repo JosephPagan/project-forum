@@ -4,18 +4,28 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Rebirth Island Forum</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geostar+Fill&family=Sarpanch&family=Syncopate&display=swap" rel="stylesheet">
+
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Eagle+Lake&display=swap" rel="stylesheet">
+        
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="style.css">
     </head>    
     <body>
-        <h1>Rebirth Island Forum</h1>
+        <h1>Zone of Wars Forum</h1>
 
         <section class="container clearfix">
             <section id="inputContainer">
                 <form action='/blogPost' method="POST">
-                    <input type="text" placeholder="name" name="name">
-                    <textarea type="text" placeholder="message" rows='3' name="message"></textarea>
-                    <button type="submit">Post</button>
+                    <input type="text" placeholder="Name" name="name">
+                    <textarea type="text" placeholder="Message" rows='3' name="message"></textarea>
+                    <button id='postButton' type="submit">Post</button>
                 </form>
                 <div>
                     <button id="delete-button">Delete Blank Posts</button>
@@ -28,6 +38,8 @@
                     <li class="singlePost">
                         <h2><%= rebirthPosts[i].name %></h2>
                         <span><%= rebirthPosts[i].message %></span>
+                        <span id='likeNumber'><%= rebirthPosts[i].likes %></span>
+                        <span id='likeButton'>LIKES</span>
                     </li>
                 <% } %>
             </ul>
