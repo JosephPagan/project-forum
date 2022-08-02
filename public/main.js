@@ -53,21 +53,21 @@ async function deletePost(){
     }
 }
 async function addLike(){
-    const sName = this.parentNode.childNodes[3].innerText
-    const bMessage = this.parentNode.childNodes[5].innerText
+    const itemID = this.parentNode.childNodes[1].innerText
+    // const sName = this.parentNode.childNodes[3].innerText
+    // const bMessage = this.parentNode.childNodes[5].innerText
     const tLikes = Number(this.parentNode.childNodes[9].innerText)
     try{
         const response = await fetch('addOneLike', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'nameS': sName,
-              'messageS': bMessage,
-              'likesS': tLikes
+                'ObjectId': itemID,
+                'likesS': tLikes
             })
           })
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         location.reload()
 
     }catch(err){

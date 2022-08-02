@@ -41,9 +41,13 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.put('/addOneLike', (request, response) => {
-            db.collection('rebirth-posts').updateOne({name: request.body.nameS, message: request.body.messageS, likes: request.body.likesS},{
+            // console.log(request.body.ObjectId)
+            // console.log(request.body.nameS)
+            // console.log(request.body.messageS)
+            // console.log(request.body.likesS)
+            rebirthCollection.updateOne({_id: new ObjectId(request.body.ObjectId)},{
                 $set: {
-                    likes:request.body.likesS + 1
+                    likes: request.body.likesS + 1
                   }
             })
             .then(result => {

@@ -135,7 +135,7 @@ form button{
 @media screen and (max-width: 575px) {
     #likeNumber{
         float: right;
-        margin-left: 70%;
+        margin-left: 75%;
         font-family: 'Sarpanch', sans-serif;
     }
     #likeButton{
