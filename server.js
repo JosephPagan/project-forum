@@ -31,7 +31,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
 
         app.post('/blogPost', (req, res) => {
-            rebirthCollection.insertOne({name: req.body.name, message: req.body.message, likes: 0})
+            rebirthCollection.insertOne({name: req.body.name, message: req.body.message, link: req.body.link, likes: 0})
             .then(result => {
                 console.log(result)
                 res.redirect('/')

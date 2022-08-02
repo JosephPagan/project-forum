@@ -86,6 +86,9 @@ li > button{
     font-family: 'Sarpanch', sans-serif;
     margin-bottom: 3%;
 }
+li > a {
+    width: 100%;
+}
 #likeNumber{
     display: block;
     margin-left: 87%;
