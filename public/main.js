@@ -56,7 +56,7 @@ async function addLike(){
     const itemID = this.parentNode.childNodes[1].innerText
     // const sName = this.parentNode.childNodes[3].innerText
     // const bMessage = this.parentNode.childNodes[5].innerText
-    const tLikes = Number(this.parentNode.childNodes[9].innerText)
+    const tLikes = Number(this.parentNode.childNodes[11].innerText)
     try{
         const response = await fetch('addOneLike', {
             method: 'put',
