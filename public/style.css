@@ -46,6 +46,7 @@ h2{
     font-family: 'Syncopate', sans-serif;
     font-size: 1.4em;
     font-weight: bold;
+    width: 100%;
 }
 .container{
     display: flex;
@@ -60,6 +61,8 @@ ul{
     margin-left: 40%;
 }
 li{
+    display: flex;
+    flex-wrap: wrap;
     list-style: none;
     border: 3px solid lightgray;
     border-radius: 5px;
@@ -67,17 +70,25 @@ li{
     padding: 1%;
     margin-bottom: 2%;
 }
+li > h1 {
+    display: none;
+}
 li > h2{
     margin-top: 1%;
     margin-bottom: 1%;
 }
-li > span{
+li > button{
+    float: right;
+}
+#message{
+    width: 100%;
     font-size: 1.2em;
     font-family: 'Sarpanch', sans-serif;
+    margin-bottom: 3%;
 }
 #likeNumber{
     display: block;
-    margin-left: 85%;
+    margin-left: 87%;
     font-family: 'Sarpanch', sans-serif;
 }
 #likeButton{
@@ -123,8 +134,8 @@ form button{
 }
 @media screen and (max-width: 575px) {
     #likeNumber{
-        display: block;
-        margin-left: 85%;
+        float: right;
+        margin-left: 70%;
         font-family: 'Sarpanch', sans-serif;
     }
     #likeButton{
@@ -144,7 +155,7 @@ form button{
         border-radius: 5px;
         width: 80%;
         height: auto;
-        margin-left: 10%;
+        margin-left: 8%;
         display: flex;
         flex-direction: column;
         padding: 2%;

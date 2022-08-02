@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Geostar+Fill&family=Sarpanch&family=Syncopate&display=swap" rel="stylesheet">
 
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,19 +28,18 @@
                     <textarea type="text" placeholder="Message" rows='3' name="message"></textarea>
                     <button class="button-85" id='postButton' type="submit">Post</button>
                 </form>
-                <div>
-                    <button class="button-30" id="delete-button">Delete Blank Posts</button>
-                </div>
                 <div id="message"></div>
             </section>
 
             <ul id="postContainer">
                 <% for(var i = 0; i < rebirthPosts.length; i++) {%>
-                    <li class="singlePost">
+                    <li id='eachPost' class="singlePost">
+                        <h1><%= rebirthPosts[i]._id %></h1>
                         <h2><%= rebirthPosts[i].name %></h2>
-                        <span><%= rebirthPosts[i].message %></span>
-                        <span id='likeNumber'><%= rebirthPosts[i].likes %></span>
-                        <span id='likeButton'>LIKES</span>
+                        <span id="message"><%= rebirthPosts[i].message %></span>
+                        <button id="deletePost" class="deleteButton"><i class="icon-trash"></i></button>
+                        <span id='likeNumber'><%= rebirthPosts[i].likes %> Likes</span>
+                        <span id='likeButton'>LIKE</span>
                     </li>
                 <% } %>
             </ul>

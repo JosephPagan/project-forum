@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const MongoClient= require('mongodb').MongoClient
+var ObjectId = require('mongodb').ObjectID;
 const cors = require('cors')
 const PORT = process.env.PORT || 3001
 const connectionString = 'mongodb+srv://yoda:Shadow69@cluster0.cf1zjcw.mongodb.net/?retryWrites=true&w=majority'
@@ -11,6 +12,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         console.log('Connected to Database')
         const db = client.db('project-forum')
         const rebirthCollection = db.collection('rebirth-posts')
+        
 
         app.use(cors())
         app.set('view engine', 'ejs')
@@ -22,7 +24,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         app.get('/', (req, res) => {
             db.collection('rebirth-posts').find().toArray()
                 .then(results => {
-                    //console.log(results)
+                    // console.log(typeof(results[0]._id))
                     res.render('index.ejs', { rebirthPosts: results })
                 })
                 .catch(error => console.log(error))
@@ -45,22 +47,32 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
                   }
             })
             .then(result => {
-                console.log('Added One Like')
+                // console.log('Added One Like')
                 response.json('Like Added')
             })
             .catch(error => console.error(error))
         })
 
-        app.delete('/blogPost', (req, res) => {
-            rebirthCollection.deleteOne({name: req.body.name})
+        // app.delete('/blogPost', (req, res) => {
+        //     rebirthCollection.deleteOne({name: req.body.name})
+        //     .then(result => {
+        //         if (result.deletedCount === 0) {
+        //             return res.json('No blank posts at this time')
+        //         }
+        //         res.json('Deleted Blank Post')
+        //         console.log('Blank Deleted')
+        //     })
+        //     .catch(error => console.log(error))
+        // })
+
+        app.delete('/deletePost', (request, response) => {
+            // console.log(request.body.ObjectId)
+            rebirthCollection.deleteOne( { _id: new ObjectId(request.body.ObjectId) } )
             .then(result => {
-                if (result.deletedCount === 0) {
-                    return res.json('No blank posts at this time')
-                }
-                res.json('Deleted Blank Post')
-                console.log('Blank Deleted')
+                console.log('Post Deleted')
+                response.json('Post Deleted')
             })
-            .catch(error => console.log(error))
+            .catch(error => console.error(error))
         })
 
         app.listen(PORT, () =>{
