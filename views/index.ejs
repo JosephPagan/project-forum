@@ -21,6 +21,7 @@
     <body>
         <h1>Zone of Wars Forum</h1>
 
+        <h3>Hey <%= name %>!</h3>
         <section class="container clearfix">
             <section id="inputContainer">
                 <form action='/blogPost' method="POST">
@@ -29,7 +30,7 @@
                     <input type="url" placeholder="Link" name="link">
                     <button class="button-85" id='postButton' type="submit">Post</button>
                 </form>
-                <div id="message"></div>
+                <a href="/logout" id="logoutButton">Logout</a>
             </section>
 
             <ul id="postContainer">
